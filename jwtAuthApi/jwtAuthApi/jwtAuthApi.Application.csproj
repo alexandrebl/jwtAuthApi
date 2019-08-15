@@ -16,4 +16,8 @@
     <PackageReference Include="Serilog.Sinks.Trace" Version="2.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\jwtAuthApi.Domain\jwtAuthApi.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

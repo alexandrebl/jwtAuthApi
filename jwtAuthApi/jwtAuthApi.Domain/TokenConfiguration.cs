@@ -1,6 +1,6 @@
 ﻿namespace jwtAuthApi.Domain
 {
-    public class TokenConfiguration
+    public sealed class TokenConfiguration
     {
         public string Subject { get; set; }
         public string Audience { get; set; }

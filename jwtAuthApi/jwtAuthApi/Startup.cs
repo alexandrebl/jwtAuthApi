@@ -21,15 +21,14 @@ namespace jwtAuthApi.Application
 
         public void ConfigureServices(IServiceCollection services)
         {
-            LoadCustomMiddlers(services);
+            LoadCustomMiddlers(services, Configuration);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        private static void LoadCustomMiddlers(IServiceCollection services)
+        private static void LoadCustomMiddlers(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddConfigurationMiddleware();
-            services.AddJwtMiddleware();
+            services.AddJwtMiddleware(configuration);
             services.AddLoggerMiddleware();
         }
 
