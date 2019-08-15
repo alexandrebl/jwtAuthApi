@@ -29,7 +29,15 @@ namespace jwtAuthApi.Application.Controllers
         {
             try
             {
-                return Ok();
+                var result = _userServices.Auth(user);
+                if (result)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
             }
             catch (Exception exception)
             {

@@ -4,5 +4,16 @@
         <name>jwtAuthApi.Application</name>
     </assembly>
     <members>
+        <member name="T:jwtAuthApi.Application.Middlewares.DependencyInjectionMiddleware">
+            <summary>
+            Classe de inserção de injeção de dependência
+            </summary>
+        </member>
+        <member name="M:jwtAuthApi.Application.Middlewares.DependencyInjectionMiddleware.AddDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Método de inserção de injeção de dependência
+            </summary>
+            <param name="services">serviços</param>
+        </member>
     </members>
 </doc>

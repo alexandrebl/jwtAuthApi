@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace jwtAuthApi.Repository.Layers
 {
-    public sealed class MemoryRepository<T> : IRepository<T> where T : Entity
+    public abstract class MemoryRepository<T> : IRepository<T> where T : Entity
     {
-        private static readonly IEnumerable<T> MemoryData = new List<T>();
+        protected static readonly IList<T> MemoryData = new List<T>();
 
         public T GetByKey(string searchKey)
         {
