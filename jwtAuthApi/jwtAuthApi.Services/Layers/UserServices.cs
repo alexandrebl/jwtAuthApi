@@ -28,5 +28,23 @@ namespace jwtAuthApi.Services.Layers
 
             return token;
         }
+
+        public bool Validate(string userName, string token, out string message)
+        {
+            var result = _tokenBusinessCore.Validate(userName, token, out message);
+
+            return result;
+        }
+
+        public string RefreshToken(string userName, string token, out string message)
+        {
+            var result = Validate(userName, token, out message);
+
+            if (!result) return null;
+
+            var refreshedToken = _tokenBusinessCore.RefreshToken(userName);
+
+            return refreshedToken;
+        }
     }
 }
