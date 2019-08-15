@@ -22,6 +22,7 @@ namespace jwtAuthApi.Application.Middlewares
         {
             services.AddSingleton<IRepository<User>, UserMemoryRepository>();
             services.AddTransient<IAuthBusinessCore, AuthBusinessCore>();
+            services.AddTransient<ITokenBusinessCore, TokenBusinessCore>();
             services.AddTransient<IUserServices, UserServices>();
         }
     }
