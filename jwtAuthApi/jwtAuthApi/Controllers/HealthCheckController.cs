@@ -23,7 +23,7 @@ namespace jwtAuthApi.Application.Controllers
         {
             try
             {
-                var healthCheck = new HealthCheck();
+                var healthCheck = HealthCheckHelper.GetGetHostNameAndIPAddress();
 
                 _logger.LogInformation($"{JsonConvert.SerializeObject(healthCheck)}");
 
