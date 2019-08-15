@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JWT" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\jwtAuthApi.Repository\jwtAuthApi.Repository.csproj" />
   </ItemGroup>
 

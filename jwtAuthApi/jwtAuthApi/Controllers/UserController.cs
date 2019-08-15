@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using jwtAuthApi.Domain.Entities;
+using jwtAuthApi.Domain.ViewModel;
 using jwtAuthApi.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,20 +25,17 @@ namespace jwtAuthApi.Application.Controllers
             _userServices = userServices;
         }
 
+        
         [HttpPost("auth")]
-        public IActionResult Auth([FromBody] User user)
+        public IActionResult Auth([FromBody] UserModel userModel)
         {
             try
             {
-                var result = _userServices.Auth(user);
-                if (result)
-                {
-                    return Ok();
-                }
-                else
-                {
-                    return BadRequest();
-                }
+                var token = _userServices.Auth(userModel);
+
+                if (token == null) return new StatusCodeResult(403);
+
+                return Ok(token);
             }
             catch (Exception exception)
             {

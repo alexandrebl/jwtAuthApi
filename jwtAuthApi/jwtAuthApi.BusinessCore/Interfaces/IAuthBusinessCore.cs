@@ -1,9 +1,10 @@
 ﻿using jwtAuthApi.Domain.Entities;
+using jwtAuthApi.Domain.ViewModel;
 
 namespace jwtAuthApi.BusinessCore.Interfaces
 {
     public interface IAuthBusinessCore
     {
-        bool Auth(User user);
+        User Auth(UserModel userModel);
     }
 }

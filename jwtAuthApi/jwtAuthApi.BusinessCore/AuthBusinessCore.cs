@@ -1,5 +1,7 @@
-﻿using jwtAuthApi.BusinessCore.Interfaces;
+﻿using System.Runtime.CompilerServices;
+using jwtAuthApi.BusinessCore.Interfaces;
 using jwtAuthApi.Domain.Entities;
+using jwtAuthApi.Domain.ViewModel;
 using jwtAuthApi.Repository.Interfaces;
 
 namespace jwtAuthApi.BusinessCore
@@ -13,11 +15,11 @@ namespace jwtAuthApi.BusinessCore
             _repository = repository;
         }
 
-        public bool Auth(User user)
+        public User Auth(UserModel userModel)
         {
-            var userFromRepository = GetUser(user.UserName);
+            var user = GetUser(userModel.UserName);
 
-            return Validate(userFromRepository, user);
+            return !Validate(user, userModel) ? null : user;
         }
 
         private User GetUser(string userName)
@@ -27,10 +29,10 @@ namespace jwtAuthApi.BusinessCore
             return user;
         }
 
-        private static bool Validate(User userFromRepository, User user)
+        private static bool Validate(User user, UserModel userModel)
         {
-            if (userFromRepository == null) return false;
-            return userFromRepository.Password != user.Password;
+            if (user == null) return false;
+            return user.Password != userModel.Password;
         }
     }
 }

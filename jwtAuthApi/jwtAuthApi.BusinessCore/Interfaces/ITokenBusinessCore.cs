@@ -4,10 +4,10 @@ using System.Text;
 using jwtAuthApi.Domain.Entities;
 using jwtAuthApi.Domain.ViewModel;
 
-namespace jwtAuthApi.Services.Interfaces
+namespace jwtAuthApi.BusinessCore.Interfaces
 {
-    public interface IUserServices
+    public interface ITokenBusinessCore
     {
-        string Auth(UserModel userModel);
+        string GenerateToken(User user);
     }
 }
