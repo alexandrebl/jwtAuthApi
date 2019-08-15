@@ -33,7 +33,7 @@ namespace jwtAuthApi.Application.Controllers
             }
             catch (Exception exception)
             {
-                _logger.LogError(exception, exception.Message);
+                _logger.LogError(exception, exception.ToLogString(Environment.StackTrace));
                 return new StatusCodeResult(500);
             }
         }

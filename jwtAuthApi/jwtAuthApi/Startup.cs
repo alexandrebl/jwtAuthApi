@@ -28,6 +28,7 @@ namespace jwtAuthApi.Application
             services.AddJwtMiddleware(configuration);
             services.AddLoggerMiddleware();
             services.AddDependencyInjection();
+            services.AddSwaggerService();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -37,6 +38,7 @@ namespace jwtAuthApi.Application
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwaggerApp();
             app.UseMvc();
         }
     }
