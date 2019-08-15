@@ -38,7 +38,7 @@ namespace jwtAuthApi.Application
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwaggerApp();
+            app.AddSwaggerApp("docs");
             app.UseMvc();
         }
     }

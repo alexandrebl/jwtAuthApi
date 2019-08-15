@@ -39,13 +39,15 @@ namespace jwtAuthApi.Application.Middlewares
                 c.IncludeXmlComments(caminhoXmlDoc);
             });
         }
-        public static void UseSwaggerApp(this IApplicationBuilder app)
+        public static void AddSwaggerApp(this IApplicationBuilder app, string routePrefix)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json",
                     "Auhorization Jwt Api");
+
+                c.RoutePrefix = routePrefix;
             });
         }
     }
