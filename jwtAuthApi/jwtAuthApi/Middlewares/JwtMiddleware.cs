@@ -14,7 +14,7 @@ namespace jwtAuthApi.Application.Middlewares
         {
             var tokenConfiguration = configuration.GetSection("TokenConfiguration").Get<TokenConfiguration>();
 
-            
+            services.AddSingleton<TokenConfiguration>(tokenConfiguration);
         }
     }
 }
