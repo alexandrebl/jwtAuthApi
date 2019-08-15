@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace jwtAuthApi.Repository
+﻿namespace jwtAuthApi.Repository
 {
     public class Class1
     {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace jwtAuthApi.Infraestructure
+﻿namespace jwtAuthApi.Infraestructure
 {
     public class Class1
     {

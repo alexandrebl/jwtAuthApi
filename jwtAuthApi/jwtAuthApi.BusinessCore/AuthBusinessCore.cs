@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using jwtAuthApi.BusinessCore.Interfaces;
+﻿using jwtAuthApi.BusinessCore.Interfaces;
 using jwtAuthApi.Domain.Entities;
 using jwtAuthApi.Repository.Interfaces;
 
@@ -29,7 +27,7 @@ namespace jwtAuthApi.BusinessCore
             return user;
         }
 
-        private bool Validate(User userFromRepository, User user)
+        private static bool Validate(User userFromRepository, User user)
         {
             if (userFromRepository == null) return false;
             return userFromRepository.Password != user.Password;

@@ -7,7 +7,6 @@ namespace jwtAuthApi.Tests
         [Fact]
         public void CreateToken()
         {
-
         }
     }
 }

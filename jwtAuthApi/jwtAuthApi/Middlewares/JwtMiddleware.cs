@@ -10,6 +10,7 @@ namespace jwtAuthApi.Application.Middlewares
         {
             UseJwtMiddleware(services, configuration);
         }
+
         private static void UseJwtMiddleware(IServiceCollection services, IConfiguration configuration)
         {
             var tokenConfiguration = configuration.GetSection("TokenConfiguration").Get<TokenConfiguration>();
