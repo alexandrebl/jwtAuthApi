@@ -27,6 +27,7 @@ namespace jwtAuthApi.Application
         {
             services.AddJwtMiddleware(configuration);
             services.AddLoggerMiddleware();
+            services.AddDependencyInjection();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
