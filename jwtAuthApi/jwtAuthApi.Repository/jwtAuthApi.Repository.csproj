@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\jwtAuthApi.Repository\jwtAuthApi.Repository.csproj" />
+    <ProjectReference Include="..\jwtAuthApi.Domain\jwtAuthApi.Domain.csproj" />
   </ItemGroup>
 
 </Project>

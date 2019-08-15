@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace jwtAuthApi.BusinessCore
+namespace jwtAuthApi.Repository
 {
     public class Class1
     {
