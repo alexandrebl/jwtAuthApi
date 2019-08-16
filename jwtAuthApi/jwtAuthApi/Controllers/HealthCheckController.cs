@@ -1,9 +1,9 @@
-﻿using System;
-using InsideTechConf.Library.HealthCheck;
+﻿using InsideTechConf.Library.HealthCheck;
 using jwtAuthApi.Infraestructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System;
 
 namespace jwtAuthApi.Application.Controllers
 {

@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using jwtAuthApi.BusinessCore.Interfaces;
+﻿using jwtAuthApi.BusinessCore.Interfaces;
 using jwtAuthApi.Domain.Entities;
 using jwtAuthApi.Domain.ViewModel;
 using jwtAuthApi.Repository.Interfaces;

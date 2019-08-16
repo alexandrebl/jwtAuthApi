@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using jwtAuthApi.Application.Filters;
-using jwtAuthApi.Domain.Entities;
+﻿using jwtAuthApi.Application.Filters;
 using jwtAuthApi.Domain.ViewModel;
+using jwtAuthApi.Infraestructure;
 using jwtAuthApi.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using jwtAuthApi.Infraestructure;
-using jwtAuthApi.Services.Layers;
+using System;
 
 namespace jwtAuthApi.Application.Controllers
 {
@@ -26,7 +20,6 @@ namespace jwtAuthApi.Application.Controllers
             _logger = logger;
             _userServices = userServices;
         }
-
 
         [HttpPost("auth")]
         public IActionResult Auth([FromBody] UserModel userModel)
@@ -61,7 +54,7 @@ namespace jwtAuthApi.Application.Controllers
             }
         }
 
-        [HttpGet("validate")]
+        [HttpGet("token/validate")]
         public IActionResult ValidateToken([FromHeader] string userName, [FromHeader] string token)
         {
             try
@@ -83,14 +76,15 @@ namespace jwtAuthApi.Application.Controllers
                 return new StatusCodeResult(500);
             }
         }
+
         [TypeFilter(typeof(TokenAuthFilterAttribute))]
-        [HttpGet("auth/check")]
+        [HttpGet("token/check")]
         public IActionResult ValidateByFilter([FromHeader] string userName, [FromHeader] string token)
         {
-            return Ok(new { UserName = userName, Token = token});
+            return Ok(new { UserName = userName, Token = token });
         }
 
-        [HttpPatch("refreshToken")]
+        [HttpPatch("token/refresh")]
         public IActionResult RefreshToken([FromHeader] string userName, [FromHeader] string token)
         {
             try

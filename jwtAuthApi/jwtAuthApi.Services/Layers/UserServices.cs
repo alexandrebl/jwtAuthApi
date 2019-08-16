@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using jwtAuthApi.BusinessCore.Interfaces;
-using jwtAuthApi.Domain.Entities;
+﻿using jwtAuthApi.BusinessCore.Interfaces;
 using jwtAuthApi.Domain.ViewModel;
 using jwtAuthApi.Services.Interfaces;
 
 namespace jwtAuthApi.Services.Layers
 {
-    public sealed class UserServices: IUserServices
+    public sealed class UserServices : IUserServices
     {
         private readonly IAuthBusinessCore _authBusinessCore;
         private readonly ITokenBusinessCore _tokenBusinessCore;
+
         public UserServices(IAuthBusinessCore authBusinessCore, ITokenBusinessCore tokenBusinessCore)
         {
             _authBusinessCore = authBusinessCore;

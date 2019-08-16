@@ -1,11 +1,11 @@
-﻿using System;
-using JWT;
+﻿using JWT;
 using JWT.Algorithms;
 using JWT.Builder;
 using jwtAuthApi.BusinessCore.Interfaces;
 using jwtAuthApi.Domain;
 using jwtAuthApi.Domain.Entities;
 using jwtAuthApi.Repository.Interfaces;
+using System;
 
 namespace jwtAuthApi.BusinessCore
 {
@@ -33,7 +33,7 @@ namespace jwtAuthApi.BusinessCore
             {
                 var user = GetUser(userName);
 
-                if(user == null)
+                if (user == null)
                 {
                     message = "User not found";
                     return false;
@@ -97,7 +97,5 @@ namespace jwtAuthApi.BusinessCore
 
             return token;
         }
-
-       
     }
 }

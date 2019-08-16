@@ -1,14 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using jwtAuthApi.BusinessCore;
-using jwtAuthApi.Repository;
-using jwtAuthApi.Services.Interfaces;
-using jwtAuthApi.Services.Layers;
+﻿using jwtAuthApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Mvc.Filters;
+using System;
 
 namespace jwtAuthApi.Application.Filters
 {
@@ -45,9 +38,11 @@ namespace jwtAuthApi.Application.Filters
 
             var result = _userServices.Validate(userName, token, out var message);
 
-            if(!result) context.Result = new BadRequestObjectResult(message);
+            if (!result) context.Result = new BadRequestObjectResult(message);
         }
 
-        public void OnActionExecuted(ActionExecutedContext context){}
+        public void OnActionExecuted(ActionExecutedContext context)
+        {
+        }
     }
 }
