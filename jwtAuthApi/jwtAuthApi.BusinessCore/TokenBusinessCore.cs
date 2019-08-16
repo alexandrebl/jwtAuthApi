@@ -33,7 +33,11 @@ namespace jwtAuthApi.BusinessCore
             {
                 var user = GetUser(userName);
 
-                if(user == null) throw new Exception("UserName not found");
+                if(user == null)
+                {
+                    message = "User not found";
+                    return false;
+                }
 
                 var json = new JwtBuilder()
                     .WithSecret(user.SercretKey)

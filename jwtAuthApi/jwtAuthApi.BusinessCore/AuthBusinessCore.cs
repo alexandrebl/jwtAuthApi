@@ -31,7 +31,11 @@ namespace jwtAuthApi.BusinessCore
 
         private static bool Validate(User user, UserModel userModel)
         {
-            if (user == null) return false;
+            if (user == null)
+            {
+                return false;
+            }
+
             return user.Password == userModel.Password;
         }
     }
