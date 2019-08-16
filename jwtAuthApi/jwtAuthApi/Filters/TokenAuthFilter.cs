@@ -14,11 +14,11 @@ namespace jwtAuthApi.Application.Filters
 {
     public class TokenAuthFilterAttribute : Attribute, IActionFilter
     {
-        private readonly IUserServices _userServices;
+        //   private readonly IUserServices _userServices;
 
-        public TokenAuthFilterAttribute(IUserServices userServices)
+        public TokenAuthFilterAttribute()
         {
-            _userServices = userServices;
+
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
@@ -40,11 +40,11 @@ namespace jwtAuthApi.Application.Filters
             var userName = context.HttpContext.Request.Headers["username"];
             var token = context.HttpContext.Request.Headers["token"];
 
-           var result = _userServices.Validate(userName, token, out var message);
+            //var result = _userServices.Validate(userName, token, out var message);
 
-           if (!result) context.Result = new BadRequestObjectResult(message);
+            //if (!result) context.Result = new BadRequestObjectResult(message);
 
-           return;
+            //return;
         }
     }
 }

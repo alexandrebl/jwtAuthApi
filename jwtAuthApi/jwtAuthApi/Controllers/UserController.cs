@@ -51,7 +51,7 @@ namespace jwtAuthApi.Application.Controllers
             }
         }
 
-        [HttpGet("auth")]
+        [HttpGet("validate")]
         public IActionResult ValidateToken([FromHeader] string userName, [FromHeader] string token)
         {
             try
@@ -70,14 +70,14 @@ namespace jwtAuthApi.Application.Controllers
                 return new StatusCodeResult(500);
             }
         }
-        [ServiceFilter(typeof(TokenAuthFilterAttribute))]
+        [TokenAuthFilter]
         [HttpGet("auth/check")]
-        public IActionResult ValidateByFilter()
+        public IActionResult ValidateByFilter([FromHeader] string userName, [FromHeader] string token)
         {
-            return Ok();
+            return Ok($"username: {userName} / token: {token}");
         }
 
-        [HttpPatch("auth")]
+        [HttpPatch("refreshToken")]
         public IActionResult RefreshToken([FromHeader] string userName, [FromHeader] string token)
         {
             try

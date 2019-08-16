@@ -54,6 +54,12 @@ namespace jwtAuthApi.BusinessCore
 
                 return false;
             }
+            catch (Exception exception)
+            {
+                message = exception.Message;
+
+                return false;
+            }
         }
 
         public string RefreshToken(string userName)
