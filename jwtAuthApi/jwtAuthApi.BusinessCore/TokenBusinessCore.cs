@@ -39,7 +39,7 @@ namespace jwtAuthApi.BusinessCore
                     return false;
                 }
 
-                var json = new JwtBuilder()
+                new JwtBuilder()
                     .WithSecret(user.SercretKey)
                     .MustVerifySignature()
                     .Decode(token);

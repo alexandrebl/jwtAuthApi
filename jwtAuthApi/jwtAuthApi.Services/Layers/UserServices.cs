@@ -22,7 +22,10 @@ namespace jwtAuthApi.Services.Layers
         {
             var user = _authBusinessCore.Auth(userModel);
 
-            if (user == null) return null;
+            if (user == null)
+            {
+                return null;
+            }
 
             var token = _tokenBusinessCore.GenerateToken(user);
 
@@ -40,7 +43,10 @@ namespace jwtAuthApi.Services.Layers
         {
             var result = Validate(userName, token, out message);
 
-            if (!result) return null;
+            if (!result)
+            {
+                return null;
+            }
 
             var refreshedToken = _tokenBusinessCore.RefreshToken(userName);
 

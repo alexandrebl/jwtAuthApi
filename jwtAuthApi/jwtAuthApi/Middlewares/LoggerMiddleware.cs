@@ -9,12 +9,12 @@ namespace jwtAuthApi.Application.Middlewares
     {
         public static void AddLoggerMiddleware(this IServiceCollection services)
         {
-            var logger = UseJwtMiddleware(services);
+            var logger = UseLoggerMiddleware();
 
             logger.Write(LogEventLevel.Information, "Application initialized");
         }
 
-        private static Logger UseJwtMiddleware(IServiceCollection services)
+        private static Logger UseLoggerMiddleware()
         {
             var logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()

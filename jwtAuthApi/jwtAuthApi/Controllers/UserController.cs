@@ -35,12 +35,22 @@ namespace jwtAuthApi.Application.Controllers
             {
                 _logger.LogInformation("Request data", userModel);
 
-                if (userModel == null) return BadRequest("Requested object is null");
-                if (!ModelState.IsValid) return BadRequest(ModelState);
+                if (userModel == null)
+                {
+                    return BadRequest("Requested object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
                 var token = _userServices.Auth(userModel);
 
-                if (token == null) return new StatusCodeResult(403);
+                if (token == null)
+                {
+                    return new StatusCodeResult(403);
+                }
 
                 return Ok(token);
             }
@@ -60,7 +70,10 @@ namespace jwtAuthApi.Application.Controllers
 
                 var result = _userServices.Validate(userName, token, out var message);
 
-                if (!result) return BadRequest(message);
+                if (!result)
+                {
+                    return BadRequest(message);
+                }
 
                 return Ok(message);
             }
@@ -86,7 +99,10 @@ namespace jwtAuthApi.Application.Controllers
 
                 var result = _userServices.RefreshToken(userName, token, out var message);
 
-                if (result == null) return BadRequest(message);
+                if (result == null)
+                {
+                    return BadRequest(message);
+                }
 
                 return Ok(result);
             }

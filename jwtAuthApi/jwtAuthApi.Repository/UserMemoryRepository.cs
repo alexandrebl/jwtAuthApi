@@ -5,12 +5,9 @@ namespace jwtAuthApi.Repository
 {
     public class UserMemoryRepository : MemoryRepository<User>
     {
-        public UserMemoryRepository(bool useSeed = true)
+        public UserMemoryRepository()
         {
-            if (useSeed)
-            {
-                LoadSeed();
-            }
+            LoadSeed();
         }
 
         private static void LoadSeed()
