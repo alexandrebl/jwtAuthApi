@@ -17,7 +17,7 @@ namespace jwtAuthApi.Repository
                 {
                     UserName = "admin",
                     Password = "1q2w3e4r",
-                    SercretKey = "1qa2ws3ed4rf5tg6yh7uj8il"
+                    SecretKey = "1qa2ws3ed4rf5tg6yh7uj8il"
                 });
 
             MemoryData.Add(
@@ -25,7 +25,7 @@ namespace jwtAuthApi.Repository
                 {
                     UserName = "alex",
                     Password = "2w3e4r5t",
-                    SercretKey = "2ws3ed4rf5tg6yh7uj8ik9ol"
+                    SecretKey = "2ws3ed4rf5tg6yh7uj8ik9ol"
                 });
 
             MemoryData.Add(
@@ -33,7 +33,7 @@ namespace jwtAuthApi.Repository
                 {
                     UserName = "steve",
                     Password = "3e4r5t6y",
-                    SercretKey = "3ed4rf5tg6yh7uj8ik9ol0pç"
+                    SecretKey = "3ed4rf5tg6yh7uj8ik9ol0pç"
                 });
 
             MemoryData.Add(
@@ -41,7 +41,7 @@ namespace jwtAuthApi.Repository
                 {
                     UserName = "alice",
                     Password = "4r5t6y7u",
-                    SercretKey = "4rf5tg6yh7uj8ik9ol0pç1qa"
+                    SecretKey = "4rf5tg6yh7uj8ik9ol0pç1qa"
                 });
         }
     }

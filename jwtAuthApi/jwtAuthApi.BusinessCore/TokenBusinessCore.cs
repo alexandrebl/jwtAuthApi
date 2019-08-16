@@ -40,7 +40,7 @@ namespace jwtAuthApi.BusinessCore
                 }
 
                 new JwtBuilder()
-                    .WithSecret(user.SercretKey)
+                    .WithSecret(user.SecretKey)
                     .MustVerifySignature()
                     .Decode(token);
 
@@ -87,7 +87,7 @@ namespace jwtAuthApi.BusinessCore
         {
             var token = new JwtBuilder()
                 .WithAlgorithm(new HMACSHA256Algorithm())
-                .WithSecret(user.SercretKey)
+                .WithSecret(user.SecretKey)
                 .AddClaim("exp", DateTimeOffset.UtcNow
                     .AddSeconds(tokenConfiguration.ExpirationInSeconds).ToUnixTimeSeconds())
                 .AddClaim("sub", user.UserName)
