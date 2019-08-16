@@ -70,11 +70,11 @@ namespace jwtAuthApi.Application.Controllers
                 return new StatusCodeResult(500);
             }
         }
-        [TokenAuthFilter]
+        [TypeFilter(typeof(TokenAuthFilterAttribute))]
         [HttpGet("auth/check")]
         public IActionResult ValidateByFilter([FromHeader] string userName, [FromHeader] string token)
         {
-            return Ok($"username: {userName} / token: {token}");
+            return Ok(new { UserName = userName, Token = token});
         }
 
         [HttpPatch("refreshToken")]

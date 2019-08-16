@@ -33,6 +33,8 @@ namespace jwtAuthApi.BusinessCore
             {
                 var user = GetUser(userName);
 
+                if(user == null) throw new Exception("UserName not found");
+
                 var json = new JwtBuilder()
                     .WithSecret(user.SercretKey)
                     .MustVerifySignature()
