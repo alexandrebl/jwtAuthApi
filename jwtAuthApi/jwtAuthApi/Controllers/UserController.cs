@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using jwtAuthApi.Application.Filters;
 using jwtAuthApi.Domain.Entities;
 using jwtAuthApi.Domain.ViewModel;
 using jwtAuthApi.Services.Interfaces;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using jwtAuthApi.Infraestructure;
+using jwtAuthApi.Services.Layers;
 
 namespace jwtAuthApi.Application.Controllers
 {
@@ -49,7 +51,7 @@ namespace jwtAuthApi.Application.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("auth")]
         public IActionResult ValidateToken([FromHeader] string userName, [FromHeader] string token)
         {
             try
@@ -68,8 +70,14 @@ namespace jwtAuthApi.Application.Controllers
                 return new StatusCodeResult(500);
             }
         }
+        [ServiceFilter(typeof(TokenAuthFilterAttribute))]
+        [HttpGet("auth/check")]
+        public IActionResult ValidateByFilter()
+        {
+            return Ok();
+        }
 
-        [HttpPatch]
+        [HttpPatch("auth")]
         public IActionResult RefreshToken([FromHeader] string userName, [FromHeader] string token)
         {
             try
